@@ -52,4 +52,24 @@ int main(){
     car c;
     c.construct_car(0, 2, 0, 100, 0);
 
+    while (true) {
+    string line = input();
+    write("$" + line);
+    vector<string> args = split(line, ' ');
+
+    if (args[0] == "end") {
+        break;
+    }else if (args[0] == "show") {
+        write(car.str());
+    }else if (args[0] == "enter") {
+        car.entrar();
+    }else if (args[0] == "fuel") {
+        car.abastecer(+args[1]);
+    }else if (args[0] == "leave") {
+        car.sair();
+    }else if (args[0] == "drive") {
+        car.dirigir(+args[1]);
+    }
+    }
+
 }
