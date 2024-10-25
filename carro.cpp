@@ -14,14 +14,14 @@ class car{
             this->km=Km;
         }
         void enter(){
-            if(this->pass > this->passMax){
+            if(this->pass > this->passMax || this->pass==this->passMax){
                 std::cout <<"fail: limite de pessoas atingido.\n";
             }else{
                 this->pass++;
             }
         }
         void leave(){
-            if(this->pass <= 0){
+            if(this->pass == 0){
                 std::cout <<"fail: nao ha ninguem no carro.\n";
             }else{
                 this->pass--;
