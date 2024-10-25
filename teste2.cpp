@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <fstream>
 class dados_alunos{
     public:
         std::string name;
@@ -28,3 +28,10 @@ class dados_alunos{
         std::string CPF;
         std::string matricula;
 };
+
+int main(){
+    dados_alunos aluno;
+    aluno.construct_aluno("João Heric Campos", 6, 2022, "123.123.123-12", "528223");
+    std::ofstream Myfile("teste2.txt");
+    Myfile << aluno.name << '\n' << aluno.semestre << '\n' << aluno.ano_entrada << '\n' << aluno.GetCpf() << '\n' << aluno.GetMatricula() << '\n'; 
+}

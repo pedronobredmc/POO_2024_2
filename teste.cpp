@@ -34,8 +34,7 @@ int main(){
     //std::cout << William.GetCPF() << std::endl;
     //std::cout << Maumau.GetMatricula() << std::endl;
     //std::cout << William.nome << std::endl;
-    std::fstream MyFile("teste.txt");
-    MyFile << Maumau.GetCPF();
-    MyFile << Maumau.GetMatricula();
+    std::ofstream MyFile("teste.txt");
+    MyFile << Maumau.nome << '\n' << Maumau.idade << '\n' << Maumau.GetCPF() << '\n'  << Maumau.GetMatricula() << '\n';
     MyFile.close();
 }
