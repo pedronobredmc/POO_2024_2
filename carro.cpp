@@ -14,24 +14,24 @@ class car{
             this->km=Km;
         }
         void enter(){
-            if(this->pass > this.passMax){
-                std::cout <<"fail: limite de pessoas atingido.\n"
+            if(this->pass > this->passMax){
+                std::cout <<"fail: limite de pessoas atingido.\n";
             }else{
                 this->pass++;
             }
         }
         void leave(){
             if(this->pass <= 0){
-                std::cout <<"fail: nao ha ninguem no carro.\n"
+                std::cout <<"fail: nao ha ninguem no carro.\n";
             }else{
                 this->pass--;
             }
         }
         void fuel(int gas){
             if(this->gas+gas>=this->gasMax){
-                this->gas=this->gasMax
+                this->gas=this->gasMax;
             }else{
-                this.gas+=gas;
+                this->gas+=gas;
             }
         }
         void drive(int dist){
@@ -43,10 +43,10 @@ class car{
             }else if(this->pass<0){
                 std::cout<<"fail: nao ha ninguem no carro\n";
             }else if(this->gas<dist){
-                std::cout<<"fail: tanque vazio após andar "<<std::tostr((dist)-(this->gas))<<" km.\n";
+                std::cout<<"fail: tanque vazio após andar "<<std::to_string((dist)-(this->gas))<<" km.\n";
             }
         }
-}
+};
 
 int main(){
     car c;
