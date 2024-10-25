@@ -46,6 +46,9 @@ class car{
                 std::cout<<"fail: tanque vazio após andar "<<std::to_string((dist)-(this->gas))<<" km.\n";
             }
         }
+        std::string show(){
+            return "pass: " + tostr(pass) + ", gas: " + tostr(gas) + ", km: " + tostr(km);
+        }
 };
 
 int main(){
@@ -60,15 +63,15 @@ int main(){
     if (args[0] == "end") {
         break;
     }else if (args[0] == "show") {
-        write(car.str());
+        write(c.show());
     }else if (args[0] == "enter") {
-        car.entrar();
+        c.enter();
     }else if (args[0] == "fuel") {
-        car.abastecer(+args[1]);
+        c.fuel(+args[1]);
     }else if (args[0] == "leave") {
-        car.sair();
+        c.leave();
     }else if (args[0] == "drive") {
-        car.dirigir(+args[1]);
+        cr.drive(+args[1]);
     }
     }
 
