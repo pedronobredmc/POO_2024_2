@@ -1,4 +1,5 @@
-#include <iostream>
+#include <fn.hpp>
+using namespace fn;
 class car{
     public:
         int pass;
@@ -47,7 +48,7 @@ class car{
             }
         }
         std::string show(){
-            return "pass: " + tostr(pass) + ", gas: " + tostr(gas) + ", km: " + tostr(km);
+            return "pass: " + std::to_string(pass) + ", gas: " + std::to_string(gas) + ", km: " + std::to_string(km);
         }
 };
 
@@ -55,8 +56,9 @@ int main(){
     car c;
     c.construct_car(0, 2, 0, 100, 0);
 
+    
     while (true) {
-    string line = input();
+    std::string line = input();
     write("$" + line);
     vector<string> args = split(line, ' ');
 
