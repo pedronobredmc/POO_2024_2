@@ -60,7 +60,8 @@ int main(){
     while (true) {
     std::string line = input();
     write("$" + line);
-    vector<string> args = split(line, ' ');
+    std::vector<std::string> args;
+     args = split(line, ' ');
 
     if (args[0] == "end") {
         break;
@@ -73,7 +74,7 @@ int main(){
     }else if (args[0] == "leave") {
         c.leave();
     }else if (args[0] == "drive") {
-        cr.drive(+args[1]);
+        c.drive(+args[1]);
     }
     }
 
