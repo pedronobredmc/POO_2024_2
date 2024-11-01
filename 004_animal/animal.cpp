@@ -1,31 +1,37 @@
-#include <fn.hpp>
+#include "fn.hpp"
 using namespace fn;
 class Animal{
     public:
         std::string especie;
-        int idade;
         std::string barulho;
-
-        Animal(std::string especie, std::string barulho){
+        int idade;
+        Animal(std::string especie = "", std::string barulho = ""){
             this->barulho = barulho;
             this->idade = 0;
             this->especie = especie;
         }
 
-        std::string fazerBarulho(){
-            return this->barulho;
-        }
-        std::string envelhecer(int qnt){
-            if(this->idade>=4){
-                return "warning: "+this->especie+"morreu.\n";
-                this->idade=4;
+        void fazerBarulho(){
+            if(this->idade>0 && this->idade<4){
+                std::cout << this->barulho<< "\n";
+            }else if(this->idade==0){
+                std::cout << "---\n";
             }else{
-                this->idade+=qnt;
-                return std::to_string(this->idade);
+                std::cout << "RIP\n";
+            }
+            
+        }
+        
+        void envelhecer(int qnt){
+            this->idade+=qnt;
+            if(this->idade>=4){
+                std::cout << "warning: "+this->especie+" morreu\n";
+                this->idade=4;
             }
         }
-        std::string show(){
-            return this->especie + ":" + std::to_string(this->idade) + ":" + this->barulho;
+
+        void show(){
+            std::cout << this->especie + ":" + std::to_string(this->idade) + ":" + this->barulho<< "\n";
         }
 };
 
