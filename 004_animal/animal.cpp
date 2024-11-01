@@ -1,40 +1,36 @@
 #include <fn.hpp>
 using namespace fn;
-class animal{
+class Animal{
     public:
         std::string especie;
         int idade;
         std::string barulho;
 
-};
-class teste{
-    public:
-        animal a;
-        teste construct_animal(std::string especie, std::string barulho){
-                this->a.especie=especie;
-                this->a.barulho=barulho;
-                return *this;
+        Animal(std::string especie, std::string barulho){
+            this->barulho = barulho;
+            this->idade = 0;
+            this->especie = especie;
+        }
+
+        std::string fazerBarulho(){
+            return this->barulho;
+        }
+        std::string envelhecer(int qnt){
+            if(this->idade>=4){
+                return "warning: "+this->especie+"morreu.\n";
+                this->idade=4;
+            }else{
+                this->idade+=qnt;
+                return std::to_string(this->idade);
             }
-            std::string fazerBarulho(){
-                return this->a.barulho;
-            }
-            std::string envelhecer(int qnt){
-                if(a.idade>=4){
-                    return "warning: "+this->a.especie+"morreu.\n";
-                    this->a.idade=4;
-                }else{
-                    this->a.idade+=qnt;
-                    return std::to_string(this->a.idade);
-                }
-            }
-            std::string show(){
-                return this->a.especie + ":" + std::to_string(this->a.idade) + ":" + this->a.barulho;
-            }
+        }
+        std::string show(){
+            return this->especie + ":" + std::to_string(this->idade) + ":" + this->barulho;
+        }
 };
 
 int main(){
-    teste a;
-
+    Animal Stu("", "");
      while (true) {
         fn::write("$", "");
         auto line = fn::input();
@@ -44,10 +40,10 @@ int main(){
 
         if      (args[0] == "end"  ) { break;                               }
 
-        else if (args[0] == "init" ) { a = a.construct_animal(args[1], args[2]);     }
-        else if (args[0] == "grow" ) { a.envelhecer(+args[1]);                  }
-        else if (args[0] == "noise") { a.fazerBarulho();              }
-        else if (args[0] == "show" ) { a.show();               }
+        else if (args[0] == "init" ) { Stu = Animal(args[1], args[2]);     }
+        else if (args[0] == "grow" ) { Stu.envelhecer(+args[1]);                  }
+        else if (args[0] == "noise") { Stu.fazerBarulho();              }
+        else if (args[0] == "show" ) { Stu.show();               }
 
         else                         { fn::write("fail: comando invalido"); }
     }
